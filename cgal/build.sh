@@ -10,7 +10,7 @@ if [ "$(uname)" == "Linux" ]; then
 fi
 
 if [ "$(uname)" == "Darwin" ]; then
-  cmake -DGMP_LIBRARIES="-L$PREFIX/lib -lgmp" -DGMP_INCLUDE_DIR=$PREFIX/include -DCMAKE_INSTALL_PREFIX=$PREFIX '-DCMAKE_INSTALL_RPATH=@loader_path/../lib' .
+  cmake -DGMP_LIBRARIES="-L$PREFIX/lib -lgmp" -DGMP_INCLUDE_DIR=$PREFIX/include -DCMAKE_INSTALL_PREFIX=$PREFIX '-DCMAKE_INSTALL_RPATH=@loader_path/../lib' -DCMAKE_SHARED_LINKER_FLAGS='-undefined dynamic_lookup' .
 fi
 
 make

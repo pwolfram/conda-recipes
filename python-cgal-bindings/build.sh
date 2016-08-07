@@ -7,7 +7,7 @@ if [ "$(uname)" == "Linux" ]; then
   cmake -DBUILD_JAVA=OFF -DSWIG_DIR=$SYS_PREFIX -DCMAKE_INSTALL_PREFIX=$PREFIX '-DCMAKE_INSTALL_RPATH=$ORIGIN/../lib' .
 fi
 if [ "$(uname)" == "Darwin" ]; then
-  cmake -DBUILD_JAVA=OFF -DSWIG_DIR=$SYS_PREFIX -DCMAKE_INSTALL_PREFIX=$PREFIX '-DCMAKE_INSTALL_RPATH=@loader_path/../lib' .
+  cmake -DBUILD_JAVA=OFF -DSWIG_DIR=$SYS_PREFIX -DCMAKE_INSTALL_PREFIX=$PREFIX '-DCMAKE_INSTALL_RPATH=@loader_path/../lib' -DCMAKE_SHARED_LINKER_FLAGS='-undefined dynamic_lookup' .
 fi
 # on wakari, don't use -j b/c of RAM constraints
 make -j2
