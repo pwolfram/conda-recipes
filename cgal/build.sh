@@ -5,6 +5,9 @@
 # with just the path
 # had been using SYS_PREFIX, but PREFIX is probably more appropriate since
 # having gmp as a requirement will install it to PREFIX, not SYS_PREFIX
+#module purge
+#module load gcc openmpi cmake
+#module list
 cmake -DGMP_LIBRARIES="-L$PREFIX/lib -lgmp" -DGMP_INCLUDE_DIR=$PREFIX/include -DCMAKE_INSTALL_PREFIX=$PREFIX '-DCMAKE_INSTALL_RPATH=$ORIGIN/../lib' .
-make 
+make
 make install

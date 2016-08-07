@@ -12,10 +12,16 @@ source:
 about:
   home: https://code.google.com/p/cgal-bindings/
   license: Boost Software License
-  summary: python bindings for CGAL 
+  summary: python bindings for CGAL
 build:
   number: 5
   string: 5
+  # need to ensure that module files are ok (compilers/cmake)
+  # module load gcc openmpi cmake
+  script_env:
+    - LD_LIBRARY_PATH
+    - CPATH
+    - PATH
 
 requirements:
   build:
@@ -24,7 +30,7 @@ requirements:
    - swig
    - mpfr
    - gmp
-   - patch
+#  - patch
    - cmake
   run:
    - cgal 4.3.0

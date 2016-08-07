@@ -1,10 +1,10 @@
-package: 
+package:
   name: cgal
   version: 4.3.0
 
 source:
    fn: CGAL-4.3.tar.gz
-   url: https://gforge.inria.fr/frs/download.php/32994/CGAL-4.3.tar.gz
+   url: file:////lustre/scratch1/turquoise/pwolfram/stomel_install/conda-recipes/cgal/CGAL-4.3.tar.gz
 
 about:
   home: http://www.cgal.org/
@@ -13,6 +13,12 @@ about:
 build:
   number: 4
   string: 4
+  # need to ensure that module files are ok (compilers/cmake)
+  # module load gcc openmpi cmake
+  script_env:
+    - LD_LIBRARY_PATH
+    - CPATH
+    - PATH
 
 # needs boost - this is now in defaults.  the ioos boost is broken (and has been
 # deprecated but still appears in the channel - 2015-08-02)
@@ -21,13 +27,13 @@ requirements:
   # it doesn't really require python, but maybe that will fix
   # the missing bin directory
   build:
-   - boost 1.57.0
+   - boost
    - python
    - cmake 2.8.9
    - mpfr
    - gmp
   run:
-   - boost 1.57.0
+   - boost
    - gmp
    - mpfr
 
