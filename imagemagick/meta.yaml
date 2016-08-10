@@ -1,0 +1,27 @@
+package:
+  name: imagemagick
+  version: "6.9.5"
+
+build:
+  number: 0
+
+source:
+  fn: ImageMagick-6.9.5-5.tar.gz
+  url: file:///lustre/scratch1/turquoise/pwolfram/stomel_install/conda-recipes/imagemagick/ImageMagick-6.9.5-5.tar.gz
+  sha256: b64e4aafd6dfae2d83bc0b14a0462cbdd2c267cb908e81014e0aa51dff346b4b
+
+# test:
+#   commands:
+#     - make check
+
+requirements:
+  build:
+   - gcc
+   - libgcc
+  run:
+   - gcc
+   - libgcc
+
+about:
+  home: http://www.imagemagick.org/
+  license: Apache
