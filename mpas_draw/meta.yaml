@@ -1,0 +1,31 @@
+package:
+  name: mpas_draw
+  version: 1.0.0
+
+source:
+   git_url: git@github.com:MPAS-Dev/MPAS-Tools.git
+
+about:
+  home: https://github.com/MPAS-Dev/MPAS-Tools
+  license: GPL/LGPL
+  summary: Doug Jacobsen's MpasDraw
+
+build:
+  number: 1
+  string: 1
+
+requirements:
+  build:
+   - gcc
+   - libgcc
+   - freeglut
+   - libnetcdf
+   - mesalib
+   - mesa
+  run:
+   - gcc
+   - libgcc
+   - freeglut
+   - libnetcdf
+   - mesalib
+   - mesa
